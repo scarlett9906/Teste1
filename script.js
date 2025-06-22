@@ -40,20 +40,28 @@ function sendMessage() {
   let input = document.getElementById('chatInput');
   if (input.value.trim() !== '' && currentChat !== '') {
     let msg = document.createElement('div');
+    msg.classList.add('user');
     msg.innerText = input.value;
     document.getElementById('chatMessages').appendChild(msg);
     localStorage.setItem(currentChat, document.getElementById('chatMessages').innerHTML);
     input.value = '';
     document.getElementById('clickSound').play();
+
+    // Estrutura pronta para IA responder depois
+    let iaMsg = document.createElement('div');
+    iaMsg.classList.add('ia');
+    iaMsg.innerText = '[Resposta da IA aqui...]';
+    document.getElementById('chatMessages').appendChild(iaMsg);
+    localStorage.setItem(currentChat, document.getElementById('chatMessages').innerHTML);
   }
 }
 
 function linkChat() {
-  alert('Linkar Chat ainda em desenvolvimento');
+  alert('Popup de linkar chats - em desenvolvimento');
 }
 
 function renameChat() {
-  alert('Renomear Chat ainda em desenvolvimento');
+  alert('Renomear chat - em desenvolvimento');
 }
 
 function clearChat() {
@@ -64,7 +72,7 @@ function clearChat() {
 }
 
 function restoreChat() {
-  alert('Restaurar chats ainda em desenvolvimento');
+  alert('Restaurar chats excluídos - em desenvolvimento');
 }
 
 function openConfig() {
