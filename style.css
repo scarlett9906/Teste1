@@ -39,16 +39,10 @@ body {
   margin: 0 auto;
 }
 
-.logo-sidebar {
-  width: 100px;
-  margin-bottom: 10px;
-  animation: pulse 2s infinite;
-}
-
 #welcomeScreen {
   position: fixed;
   top: 0;
-  left: 220px; /* Não cobre a sidebar */
+  left: 220px;
   right: 0;
   bottom: 0;
   display: flex;
@@ -59,7 +53,7 @@ body {
 }
 
 .logo-entrada {
-  width: 300px; /* Logo grande */
+  width: 400px;
   animation: pulse 2s infinite;
 }
 
@@ -76,6 +70,29 @@ body {
   right: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.input-area {
+  display: flex;
+  background: #222;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.input-area input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  background: #000;
+  color: #f00;
+}
+
+.input-area button {
+  background: #f00;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
 .chat-options button {
@@ -112,4 +129,20 @@ body {
   padding: 5px;
   cursor: pointer;
   text-align: center;
+}
+
+#chatMessages div.user {
+  background: #333;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  color: #f00;
+}
+
+#chatMessages div.ia {
+  background: #440000;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  color: #ff5555;
 }
