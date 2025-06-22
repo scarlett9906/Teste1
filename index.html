@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Painel IA MIREXP</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>IA MIREXP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="sidebar">
-    <div class="logo"></div>
-    <!-- Botões fixos -->
-    <button onclick="newChat('Mapa')">🗺️ Gerador de mapa</button>
-    <button onclick="newChat('Scripts')">🎮 Scripts/lógicas</button>
-    <button onclick="newChat('Cutscene')">🎬 Cutscene/vídeos</button>
-    <button onclick="newChat('UI')">🖥️ UI/Botões</button>
-    <button onclick="newChat('Banner')">🖼️ Banner</button>
-    <button onclick="newChat('GamePass')">🎫 Game pass</button>
-    <button onclick="newChat('Ideias')">🧠 Ideias de mapa</button>
-    <button onclick="newChat('Geral')">💬 Chat geral</button>
-    <button onclick="openRobloxAI()">👨‍💻 Roblox Intelligence</button>
-    <button onclick="openConfig()">⚙️ Configurações</button>
-    <div id="chatList"></div>
-  </div>
-
-  <div class="main">
-    <div id="messages"></div>
-    <div class="input-area">
-      <textarea id="userInput" placeholder="Digite..."></textarea>
-      <button onclick="sendMessage()">Enviar</button>
+    <div id="splash" class="splash-screen">
+        <img src="logo.png" alt="Logo IA MIREXP" class="logo-entrada">
+        <h1>Bem-vindo ao IA MIREXP</h1>
     </div>
-    <div class="chat-actions">
-      <button onclick="linkChat()">🔗 Linkar</button>
-      <button onclick="deleteChat()">🗑️ Excluir</button>
-      <button onclick="renameChat()">📝 Renomear</button>
-      <button onclick="clearChat()">🧹 Limpar Chat</button>
-      <button onclick="restoreChat()">♻️ Restaurar</button>
-    </div>
-  </div>
 
-  <audio id="clickSound" src="sounds/click.mp3"></audio>
-  <script src="script.js"></script>
+    <div class="sidebar">
+        <img src="logo.png" class="logo-sidebar">
+        <button class="menu-btn" onclick="createChat('🗺️', 'Gerador de mapa')">🗺️ Gerador de mapa</button>
+        <button class="menu-btn" onclick="createChat('🎮', 'Scripts/lógicas')">🎮 Scripts/lógicas</button>
+        <button class="menu-btn" onclick="createChat('🎬', 'Cutscene/vídeos')">🎬 Cutscene/vídeos</button>
+        <button class="menu-btn" onclick="createChat('🖥️', 'UI/Botões')">🖥️ UI/Botões</button>
+        <button class="menu-btn" onclick="createChat('🖼️', 'Banner')">🖼️ Banner</button>
+        <button class="menu-btn" onclick="createChat('🎫', 'Game pass')">🎫 Game pass</button>
+        <button class="menu-btn" onclick="createChat('🧠', 'Ideias de mapa')">🧠 Ideias de mapa</button>
+        <button class="menu-btn" onclick="createChat('💬', 'Chat geral')">💬 Chat geral</button>
+        <button class="menu-btn" onclick="createChat('👨‍💻', 'Roblox Intelligence')">👨‍💻 Roblox Intelligence</button>
+        <button class="menu-btn config-btn" onclick="openConfig()">⚙️ Configurações IA MIREXP</button>
+    </div>
+
+    <div class="chat-area">
+        <div id="chatTabs"></div>
+        <div id="chatMessages"></div>
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()">Enviar</button>
+        <div class="chat-options">
+            <button onclick="linkChat()">🔗 Linkar Chat</button>
+            <button onclick="renameChat()">📝 Renomear Chat</button>
+            <button onclick="clearChat()">🧹 Limpar Chat</button>
+            <button onclick="restoreChat()">♻️ Restaurar Chat</button>
+        </div>
+    </div>
+
+    <audio id="clickSound" src="click.mp3"></audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
