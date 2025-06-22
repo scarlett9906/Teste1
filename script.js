@@ -1,62 +1,74 @@
 let currentChat = '';
 
-window.onload = function() {
-    setTimeout(() => document.getElementById('splash').style.display = 'none', 3000);
-};
-
-function createChat(emoji, name) {
-    let chatName = prompt("Nome para o novo chat em " + name + ":");
-    if (chatName) {
-        let tab = document.createElement('div');
-        tab.innerText = emoji + " " + chatName;
-        tab.onclick = () => switchChat(chatName);
-        document.getElementById('chatTabs').appendChild(tab);
-        localStorage.setItem(chatName, '');
-        currentChat = chatName;
-        document.getElementById('chatMessages').innerHTML = '';
-    }
+function openChat(emoji, type) {
+  let popupHTML = `
+    <div class='popup'>
+      <h3>${type}</h3>
+      <input id='chatName' placeholder='Nome do Chat'>
+      <br>
+      <button onclick='confirmChat("${emoji}", "${type}")'>Confirmar</button>
+    </div>`;
+  document.getElementById('popupContainer').innerHTML = popupHTML;
+  document.getElementById('popupContainer').style.display = 'flex';
 }
 
-function switchChat(name) {
+function confirmChat(emoji, type) {
+  let name = document.getElementById('chatName').value;
+  if (name.trim() !== '') {
+    let tab = document.createElement('div');
+    tab.innerText = emoji + " " + name;
+    tab.onclick = () => loadChat(name);
+    document.getElementById('chatTabs').appendChild(tab);
+
+    localStorage.setItem(name, '');
     currentChat = name;
-    document.getElementById('chatMessages').innerHTML = localStorage.getItem(name);
+    document.getElementById('chatMessages').innerHTML = '';
+    document.getElementById('mainContent').style.display = 'block';
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('popupContainer').style.display = 'none';
+
+    document.getElementById('clickSound').play();
+  }
+}
+
+function loadChat(name) {
+  currentChat = name;
+  document.getElementById('chatMessages').innerHTML = localStorage.getItem(name);
 }
 
 function sendMessage() {
-    let input = document.getElementById('chatInput');
-    if (input.value.trim() !== '' && currentChat !== '') {
-        let msg = document.createElement('div');
-        msg.innerText = input.value;
-        document.getElementById('chatMessages').appendChild(msg);
-        localStorage.setItem(currentChat, document.getElementById('chatMessages').innerHTML);
-        document.getElementById('clickSound').play();
-        input.value = '';
-    }
+  let input = document.getElementById('chatInput');
+  if (input.value.trim() !== '' && currentChat !== '') {
+    let msg = document.createElement('div');
+    msg.innerText = input.value;
+    document.getElementById('chatMessages').appendChild(msg);
+    localStorage.setItem(currentChat, document.getElementById('chatMessages').innerHTML);
+    input.value = '';
+    document.getElementById('clickSound').play();
+  }
 }
 
 function linkChat() {
-    alert('Popup de Linkar Chat: (em desenvolvimento)');
+  alert('Linkar Chat ainda em desenvolvimento');
 }
 
 function renameChat() {
-    let newName = prompt("Novo nome para o chat:");
-    if (newName && currentChat !== '') {
-        currentChat = newName;
-        alert("Chat renomeado para: " + newName);
-    }
+  alert('Renomear Chat ainda em desenvolvimento');
 }
 
 function clearChat() {
-    if (confirm("Tem certeza que quer limpar o chat?")) {
-        document.getElementById('chatMessages').innerHTML = '';
-        localStorage.setItem(currentChat, '');
-    }
+  if (confirm("Tem certeza que deseja limpar o chat?")) {
+    document.getElementById('chatMessages').innerHTML = '';
+    localStorage.setItem(currentChat, '');
+  }
 }
 
 function restoreChat() {
-    alert("Função de restaurar chats ainda em desenvolvimento!");
+  alert('Restaurar chats ainda em desenvolvimento');
 }
 
 function openConfig() {
-    alert("Abrindo configurações IA MIREXP!");
+  document.getElementById('welcomeScreen').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+  document.getElementById('chatMessages').innerHTML = '<h2>Configurações IA MIREXP</h2>';
 }
