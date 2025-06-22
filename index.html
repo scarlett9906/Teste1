@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel IA MIREXP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"></div>
+    <!-- Botões fixos -->
+    <button onclick="newChat('Mapa')">🗺️ Gerador de mapa</button>
+    <button onclick="newChat('Scripts')">🎮 Scripts/lógicas</button>
+    <button onclick="newChat('Cutscene')">🎬 Cutscene/vídeos</button>
+    <button onclick="newChat('UI')">🖥️ UI/Botões</button>
+    <button onclick="newChat('Banner')">🖼️ Banner</button>
+    <button onclick="newChat('GamePass')">🎫 Game pass</button>
+    <button onclick="newChat('Ideias')">🧠 Ideias de mapa</button>
+    <button onclick="newChat('Geral')">💬 Chat geral</button>
+    <button onclick="openRobloxAI()">👨‍💻 Roblox Intelligence</button>
+    <button onclick="openConfig()">⚙️ Configurações</button>
+    <div id="chatList"></div>
+  </div>
+
+  <div class="main">
+    <div id="messages"></div>
+    <div class="input-area">
+      <textarea id="userInput" placeholder="Digite..."></textarea>
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <div class="chat-actions">
+      <button onclick="linkChat()">🔗 Linkar</button>
+      <button onclick="deleteChat()">🗑️ Excluir</button>
+      <button onclick="renameChat()">📝 Renomear</button>
+      <button onclick="clearChat()">🧹 Limpar Chat</button>
+      <button onclick="restoreChat()">♻️ Restaurar</button>
+    </div>
+  </div>
+
+  <audio id="clickSound" src="sounds/click.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
