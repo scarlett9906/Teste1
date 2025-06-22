@@ -3,16 +3,20 @@ body {
   color: #f00;
   font-family: Arial, sans-serif;
   margin: 0;
+  display: flex;
 }
 
 .sidebar {
   width: 220px;
-  float: left;
-  padding: 10px;
   background: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .menu-buttons {
@@ -20,6 +24,7 @@ body {
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  margin-top: 20px;
 }
 
 .menu-buttons button {
@@ -30,7 +35,8 @@ body {
   border: none;
   cursor: pointer;
   text-align: center;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .logo-sidebar {
@@ -39,20 +45,21 @@ body {
   animation: pulse 2s infinite;
 }
 
-.welcome-screen {
+#welcomeScreen {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 220px; /* Não cobre a sidebar */
+  right: 0;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: #000;
   z-index: 1000;
-  color: #f00;
 }
 
 .logo-entrada {
-  width: 150px;
+  width: 300px; /* Logo grande */
   animation: pulse 2s infinite;
 }
 
