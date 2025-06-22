@@ -33,7 +33,7 @@ function confirmChat(emoji, type) {
 
 function loadChat(name) {
   currentChat = name;
-  document.getElementById('chatMessages').innerHTML = localStorage.getItem(name);
+  document.getElementById('chatMessages').innerHTML = localStorage.getItem(name) || '';
 }
 
 function sendMessage() {
